@@ -158,6 +158,56 @@ while true do
     if split[1] == "prestigemultiplier" then
         prestigemultiplier = tonumber(split[2])
     end
+    if split[1] == "unlocks" then
+        unlocks = tonumber(split[2])
+        if unlocks >= 1 then
+            dirtunlocked = 2
+            sugarcaneunlocked = 1
+        end
+        if unlocks >= 2 then
+            sugarcaneunlocked = 2
+            andesiteunlocked = 1
+        end
+        if unlocks >= 3 then
+            andesiteunlocked = 2
+            milkunlocked = 1
+        end
+        if unlocks >= 4 then
+            milkunlocked = 2
+            zombieunlocked = 1
+        end
+        if unlocks >= 5 then
+            zombieunlocked = 2
+            ironfarmunlocked = 1
+        end
+        if unlocks >= 6 then
+            ironfarmunlocked = 2
+            lavafarmunlocked = 1
+        end
+        if unlocks >= 7 then
+            lavafarmunlocked = 2
+            endfarmunlocked = 1
+        end
+        if unlocks >= 8 then
+            endfarmunlocked = 2
+            withercheeseunlocked = 1
+        end
+        if unlocks >= 9 then
+            withercheeseunlocked = 2
+            sculkunlocked = 1
+        end
+        if unlocks >= 10 then
+            sculkunlocked = 2
+            ancientdebrisunlocked = 1
+        end
+        if unlocks >= 11 then
+            ancientdebrisunlocked = 2
+            prestigeunlocked = 1
+        end
+        if unlocks >= 12 then
+            prestigeunlocked = 2
+        end
+    end
 end
 file:close()
 
@@ -181,6 +231,19 @@ function updateSavefile ()
     io.write(string.format("ancientdebrislevel=%s\n", ancientdebrislevel))
     io.write(string.format("prestige=%s\n", prestige))
     io.write(string.format("prestigemultiplier=%s", prestigemultiplier))
+    unlocks = 1
+    if sugarcaneunlocked == 2 then unlocks = 2 end
+    if andesiteunlocked == 2 then unlocks = 3 end
+    if milkunlocked == 2 then unlocks = 4 end
+    if zombieunlocked == 2 then unlocks = 5 end
+    if ironfarmunlocked == 2 then unlocks = 6 end
+    if lavafarmunlocked == 2 then unlocks = 7 end
+    if endfarmunlocked == 2 then unlocks = 8 end
+    if withercheeseunlocked == 2 then unlocks = 9 end
+    if sculkunlocked == 2 then unlocks = 10 end
+    if ancientdebrisunlocked == 2 then unlocks = 11 end
+    if prestigeunlocked == 2 then unlocks = 12 end
+    io.write(string.format("unlocks=%s", unlocks))
     file:close()
 end
 
